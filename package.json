@@ -1,0 +1,19 @@
+{
+  "name": "git_statistic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mefistosss/git_statistic.git"
+  },
+  "author": "Touch of the mind",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mefistosss/git_statistic/issues"
+  },
+  "homepage": "https://github.com/Mefistosss/git_statistic#readme"
+}
