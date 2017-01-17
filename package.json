@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Mefistosss/git_statistic#readme",
   "devDependencies": {
+    "extend": "^3.0.0",
     "when": "^3.7.7"
   }
 }
