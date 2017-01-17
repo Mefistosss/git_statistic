@@ -1,26 +1,16 @@
-const path = require('path');
-const fs = require('fs');
 const Git = require('./lib/git');
-
+const getRepositories = require('./lib/repositories');
 
 module.exports = function(_path /* absolute path to repository */, callback) {
-    fs.stat(_path, function(statError, statResult) {
-        if (statError) { callback(statError); }
-        else {
-            if (statResult.isDirectory()) {
-                fs.stat(path.join(_path, '.git'), function(gitStatError, gitStatResult) {
-                    if (gitStatError) { callback(gitStatError); }
-                    else {
-                        if (gitStatResult.isFile() || gitStatResult.isDirectory()) {
-                            callback(null, new Git(_path));
-                        } else {
-                            callback(_path + ' is not repository.');
-                        }
-                    }
-                });
-            } else {
-                callback(_path + ' is not directory.');
-            }
+    getRepositories(_path, function(err, repositories) {
+        var result = [];
+        if (err) {
+            callback(err);
+        } else {
+            repositories.forEach(function(r) {
+                result.push(new Git(r));
+            });
+            callback(null, result);
         }
     });
 };
